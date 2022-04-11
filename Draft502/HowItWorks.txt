@@ -1,0 +1,37 @@
+﻿Here's an overview of how the Draft works:
+
+•	Prior to the “draft”, each employer submits a simple list of candidates in their order of preference, along with the number of slots they want to fill for their cohort.
+•	Likewise, each candidate submits a similar list, but of employers in their order of preference.  
+•	The draft is divided into rounds.
+•	In each round, each employer can match with *one* candidate (this, and the whole “rounds” concept, is to ensure fairness and prevent, say, a single employer with 15 slots from eating up all the candidates).  
+•	After a round, candidates that have matched are taken off the table and are not available for subsequent rounds.
+•	If an employer fills a slot within a round, I decrement the number of available slots they have.
+•	Only employers with available spots left to fill go on to the next round.
+•	The matching within the rounds is where the stable marriage algorithm comes into play.  Here’s how that works (I basically read up on it and then translated “men” into “employers” and “women” into “candidates” (again, many thanks to Larry’s guidance):
+o	Each employer goes through their candidate list in the order of preference.
+o	For each candidate in their list, I ask, “Are you already matched?” (within the round – again, candidates that are matched after a full round is over are no longer available)
+o	If no, then the employer and candidate match, and we go on to the next employer
+o	If the candidate IS already matched, I ask, “Is the new “suitor” higher on the CANDIDATE’S preference list than their existing match?
+o	If the new suitor is higher on the candidate’s preference list, the candidate dumps their existing match and is matched to the new suitor (and now the dumped employer is no longer matched, and will look for another candidate).
+o	This loop continues until all the employers have matched one candidate or we run out of candidates to match.
+•	After the round, I remove any matched candidates from consideration in subsequent rounds and decrement the number of slots the matched employers have to fill, then we go again.
+•	This continues until we run out of employer slots or candidates.
+
+This ends up being the basic equivalent of running the app over and over, narrowing the list each time.  And it’s fair, because each employer gets one pick per round.
+
+And it doesn’t break the “Stable Marriage” algorithm rules because candidates can “dump” employers for a better choice within the same “round.”
+
+More concisely:
+•	I’m running through the full matching algorithm and code with each employer having one pick (including all the stuff where a candidate can “break up with an employer if they get a higher pick”).  
+•	Once that’s done, and everyone has broken up and gotten re-engaged until everyone is happy, that pick is set in stone for that employer, and that candidate is off the table.  
+•	Then, if that employer has more slots, I run through again with the remaining employers and candidates, again, having 1 pick for each employer.  
+•	And again, those choices are set in stone afterwards.  
+•	I repeat this until all of the employer slots are filled OR we run out of candidates.  
+
+The Stable Marriage Problem / Stable Marriage Algorithm:
+The idea is to iterate through all free men while there is any free man available. 
+Every free man goes to all women in his preference list according to the order. 
+For every woman he goes to, he checks if the woman is free, if yes, they both become engaged. 
+If the woman is not free, then the woman chooses either says no to him or dumps her current engagement 
+according to her preference list.  So an engagement done once can be broken if a woman gets better option. 
+From https://www.geeksforgeeks.org/stable-marriage-problem/

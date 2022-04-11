@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Draft502.ucMainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Draft502"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="78" Margin="45,39,0,0" VerticalAlignment="Top" Width="208" Source="bit502logo.png"/>
+        <Label Content="Draft 502" HorizontalAlignment="Center" Margin="324,165,297,0" VerticalAlignment="Top" Width="179" FontSize="36" FontWeight="Bold"/>
+        <Button x:Name="btnAddCandidateInfo" Content="Add Candidate Info" HorizontalAlignment="Left" Margin="45,366,0,0" VerticalAlignment="Top" Width="146" Height="43" Click="btnAddCandidateInfo_Click"/>
+        <Button x:Name="btnAddEmployerInfo" Content="Add Employer Info" HorizontalAlignment="Left" Margin="217,366,0,0" VerticalAlignment="Top" Width="146" Height="43" Click="btnAddEmployerInfo_Click"/>
+        <Button x:Name="btnMatchCandidates" Content="Run Draft" HorizontalAlignment="Left" Margin="594,366,0,0" VerticalAlignment="Top" Width="146" Height="43" Click="btnMatchCandidates_Click"/>
+        <TextBox x:Name="txtFileLocation" HorizontalAlignment="Left" Height="23" Margin="217,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358"/>
+        <Label Content="Location for Results File" HorizontalAlignment="Left" Margin="324,438,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnChooseFileLocation" Content="Choose Results Location" HorizontalAlignment="Left" Margin="400,366,0,0" VerticalAlignment="Top" Width="146" Height="43" Click="btnChooseResultsLocation_Click"/>
+        <Label Content="Step 1" HorizontalAlignment="Left" Margin="94,343,0,0" VerticalAlignment="Top"/>
+        <Label Content="Step 2" HorizontalAlignment="Left" Margin="274,340,0,0" VerticalAlignment="Top"/>
+        <Label Content="Step 3" HorizontalAlignment="Left" Margin="459,343,0,0" VerticalAlignment="Top"/>
+        <Label Content="Step 4" HorizontalAlignment="Left" Margin="644,343,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="94,247,0,0" TextWrapping="Wrap" Text="Note:  For maximum portability, Draft 502 does not make us of a database.  Therefore, all candidates and employers must be entered at the time of the Draft." VerticalAlignment="Top" Height="55" Width="629" FontWeight="Bold" FontSize="14"/>
+
+    </Grid>
+</UserControl>
